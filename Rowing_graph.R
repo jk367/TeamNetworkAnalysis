@@ -29,6 +29,7 @@ V(g)$color <- colors[V(g)$Status]
 lec <- cluster_optimal(g)
 lec
 coords = layout_with_fr(g)
+simplify(g, remove.multiple = TRUE, remove.loops = TRUE)
 
 plot(g, 
      edge.width = (edge.attributes(g)$weight)/10,

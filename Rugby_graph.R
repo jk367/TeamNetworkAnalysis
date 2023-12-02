@@ -1,6 +1,6 @@
 library("igraph")
-edges_directory <- "/Users/james/Desktop/Socio Paper/adjacency_rugby.csv"
-nodes_directory <- "/Users/james/Desktop/Socio Paper/nodes_rugby.csv"
+edges_directory <- "~/adjacency_rugby.csv"
+nodes_directory <- "~/nodes_rugby.csv"
 
 nodes <- read.csv(nodes_directory, header=TRUE, row.names=1, check.names=FALSE, na.strings = "")
 Initial.matrix <- read.csv(edges_directory, header=TRUE, row.names=1, check.names=FALSE, na.strings = "")
@@ -23,9 +23,6 @@ V(g)$color <- colors[V(g)$Team]
 
 E(g)$weight <- edge.betweenness(g)
 simplify(g, remove.multiple = TRUE, remove.loops = TRUE)
-#lec <- cluster_optimal(g)
-#lec
-
 
 plot(g, 
      edge.width = (edge.attributes(g)$weight)/10,

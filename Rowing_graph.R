@@ -1,7 +1,7 @@
 library("igraph")
 
-edges_directory <- "/Users/james/Desktop/Socio Paper/adjacency_rowing.csv"
-nodes_directory <- "/Users/james/Desktop/Socio Paper/nodes_rowing.csv"
+edges_directory <- "~/adjacency_rowing.csv"
+nodes_directory <- "~/nodes_rowing.csv"
 
 nodes <- read.csv(nodes_directory, header=TRUE, row.names=1, check.names=FALSE, na.strings = "")
 Initial.matrix <- read.csv(edges_directory, header=TRUE, row.names=1, check.names=FALSE, na.strings = "")
@@ -26,7 +26,6 @@ E(g)$weight <- edge.betweenness(g)
 print(E(g)$weight)
 
 V(g)$color <- colors[V(g)$Status]
-#simplify(g, remove.multiple = TRUE, remove.loops = TRUE)
 lec <- cluster_optimal(g)
 lec
 coords = layout_with_fr(g)
